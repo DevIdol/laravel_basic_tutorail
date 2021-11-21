@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WebFrontend\AboutController;
+use App\Http\Controllers\WebFrontend\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,21 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('contact', function () {
-    return view('contact');
-});
+Route::get('/about', [AboutController::class, 'aboutPage']);
+// Route::get('about', 'AboutController@aboutPage');format of laravel 7
 
-Route::get('products', function () {
-    return view('product');
-});
+Route::get('contact', [ContactController::class, 'contactPage']);
+
+Route::get('products', [ProductController::class, 'productPage']);
 
 Route::get('shop', function () {
     return view('shop.shop');
 });
 
-Route::get('products/{product_id}/shop/{shop_id}', function ($product_id, $shop_id) {
-    return 'This is product id=>' . $product_id . ' page in shop id=>' . $shop_id;
-});
+Route::get('products/{product_id}/shop/{shop_id}', [ProductController::class, 'productsPage']);
