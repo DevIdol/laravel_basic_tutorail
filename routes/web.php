@@ -18,14 +18,18 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return 'This is about page.';
+    return view('about');
 });
 Route::get('contact', function () {
-    return 'This is contact page.';
+    return view('contact');
 });
 
 Route::get('products', function () {
-    return 'This is product page.';
+    return view('product');
+});
+
+Route::get('shop', function () {
+    return view('shop.shop');
 });
 
 Route::get('products/{product_id}/shop/{shop_id}', function ($product_id, $shop_id) {
