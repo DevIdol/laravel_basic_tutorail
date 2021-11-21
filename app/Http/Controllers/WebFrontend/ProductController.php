@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    function productPage(){
-        return view('product');
-    }
 
-    function productsPage($product_id, $shop_id){
+
+    function productPage($product_id, $shop_id)
+    {
         return 'This is product id=>' . $product_id . ' page in shop id=>' . $shop_id;
+    }
+    function productList()
+    {
+        $product_list = ['iPhone', 'Samsung', 'Mi', 'Sony'];
+        return view('product', [
+            'products' => $product_list
+        ]);
     }
 }

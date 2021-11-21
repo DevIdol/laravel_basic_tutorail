@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\WebFrontend\AboutController;
 use App\Http\Controllers\WebFrontend\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +26,12 @@ Route::get('/about', [AboutController::class, 'aboutPage']);
 
 Route::get('contact', [ContactController::class, 'contactPage']);
 
-Route::get('products', [ProductController::class, 'productPage']);
+Route::get('products', [ProductController::class, 'productList']);
 
 Route::get('shop', function () {
     return view('shop.shop');
 });
 
 Route::get('products/{product_id}/shop/{shop_id}', [ProductController::class, 'productsPage']);
+
+Route::post('api/promotion',[Controller::class, 'showPromotions']);
