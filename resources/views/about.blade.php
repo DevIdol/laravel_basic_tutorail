@@ -3,5 +3,5 @@
 
 @section('content')
 
-<h1>My name is {{$name}}. I am {{$age}} years old.</h1>
+<h1>About Page</h1>
 @endsection

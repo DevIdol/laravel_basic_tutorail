@@ -21,10 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', [AboutController::class, 'aboutPage']);
+Route::get('/about', [AboutController::class, 'aboutPage'])->middleware('testMW');
 // Route::get('about', 'AboutController@aboutPage');format of laravel 7
 
-Route::get('contact', [ContactController::class, 'contactPage']);
+Route::get('contact', [ContactController::class, 'contactPage'])->middleware('testMW');
 
 Route::get('products', [ProductController::class, 'productList']);
 
